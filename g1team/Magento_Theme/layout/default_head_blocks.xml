@@ -1,0 +1,6 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+	     <link rel="stylesheet" type="text/css" src="https://fonts.googleapis.com/css?family=Poppins:400,500,700,800" src_type="url" /> 
+		<script src="https://kit.fontawesome.com/a4e5322707.js" crossorigin="anonymous" src_type="url"></script>
+    </head>
+</page>

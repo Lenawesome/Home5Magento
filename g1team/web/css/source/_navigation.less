@@ -1,0 +1,30 @@
+& when (@media-common =true) {
+    .navigation {
+        display: inline-block;
+        padding: 0;
+        width: 62%;
+        margin-left: -3px;
+        position: relative;
+        padding-top: 4px;
+        font-family: 'Poppins', sans-serif;
+        >ul {
+            margin: 0;
+            padding: 0 !important;
+
+            >li {
+                margin: 0;
+                display: inline-block;
+                a {
+                    margin-right: 47px;
+                    line-height: 16px !important;
+                    text-decoration: none;
+                    color: white;
+            
+                    &:nth-child(4) {
+                        margin-left: 4px;
+                    }
+                }
+            }
+        }
+    }
+}

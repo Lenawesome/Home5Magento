@@ -1,0 +1,65 @@
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header-wrapper">
+                    <referenceBlock name="logo">
+                        <arguments>
+                            <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                            <argument name="logo_alt" xsi:type="string">logo image</argument>
+                            <argument name="logo_img_width" xsi:type="number">189</argument>
+                            <argument name="logo_img_height" xsi:type="number">64</argument>
+                        </arguments>
+                    </referenceBlock>
+        </referenceContainer>
+        <container name="section.container" label="Section Container" htmlTag="section" htmlClass="section1"/>
+        <container name="header.wrap" as="header.wrap" label="Section Container" htmlTag="div" htmlClass="headerwrap"/>
+        <container name="right.control" as="rightControl" label=" Right Control" htmlTag="div" htmlClass="right-control"/>
+        <container name="na.search.warpper" as="naSearchWrap" label=" Search Wrapper" htmlTag="div" htmlClass="search-wrap"/>
+
+        <container name="group.control" label="Group control" htmlTag="div" htmlClass="group-control"/>
+    <!-- <referenceContainer name="header.panel.wrapper" remove="true"/> -->
+    <move element="catalog.topnav" destination="header-wrapper" as="my_nav" after="logo"/>
+    <move element="header-wrapper" destination="header.wrap" as="my_header" before="-"/>
+    <move element="header.wrap" destination="section.container" as="header_wrap" after="-"/>
+    <move element="section.container" destination="header.container" after="-"/>
+    <move element="right.control" destination="header-wrapper" as="right_control" after="my_nav"/>
+
+    <!-- Move search bar to custom container in body -->
+    <move element="na.search.warpper" destination="section.container" before="-"/>
+    <move element="top.search" destination="na.search.warpper" as="moved_top_search" before="-"/>
+
+
+     <referenceContainer name="header.container">
+        <block class="Magento\Framework\View\Element\Template" name="na.search.toggle" before="-" template="Magento_Theme::html/search.phtml" />
+        <block class="Magento\Framework\View\Element\Template" name="my.slider" before="-" template="Magento_Theme::html/slider.phtml" />
+        <block class="Magento\Framework\View\Element\Template" name="section2" before="-" template="Magento_Theme::html/section2.phtml" />
+        <block class="Magento\Framework\View\Element\Template" name="na.expand.button" before="-" template="Magento_Theme::html/expandBtn.phtml" />
+        <block class="Lenawesome\MyModule\Block\Product" name="product.slider" before="-" 
+        template="Magento_Theme::html/productSlider.phtml">
+            <arguments>
+                <argument name="custom_array" xsi:type="array">
+                    <item name="product_one" xsi:type="number">
+                    1
+                    </item>
+                </argument>
+            </arguments>
+        </block>
+     </referenceContainer>
+
+    <move element="na.search.toggle" destination="right.control" before="-"/>
+    <move element="minicart" destination="right.control" before="-"/>
+    <move element="navigation.sections" destination="right.control" before="-"/>
+    <move element="na.expand.button" destination="group.control" after="-"/>
+     
+    <move element="right.control" destination="group.control" before="-"/>
+    <move element="group.control" destination="header-wrapper" after="my_nav"/>
+    <move element="my.slider" destination="section.container" before="-"/>
+    <move element="section2" destination="section.container" after="-"/>
+    <move element="product.slider" destination="main.content" before="-"/>
+    
+        <!-- <referenceBlock name="header.container" remove="true"/> -->
+        <!-- <referenceContainer name="header.container">
+            
+            <referenceBlock name="header-wrapper" remove="true"/>
+        </referenceContainer> -->
+    </body>
+</page>
