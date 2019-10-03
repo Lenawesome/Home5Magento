@@ -1,5 +1,6 @@
 <page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+    <!-- header -->
         <referenceContainer name="header-wrapper">
                     <referenceBlock name="logo">
                         <arguments>
@@ -10,6 +11,7 @@
                         </arguments>
                     </referenceBlock>
         </referenceContainer>
+        
         <container name="section.container" label="Section Container" htmlTag="section" htmlClass="section1"/>
         <container name="header.wrap" as="header.wrap" label="Section Container" htmlTag="div" htmlClass="headerwrap"/>
         <container name="right.control" as="rightControl" label=" Right Control" htmlTag="div" htmlClass="right-control"/>
@@ -30,19 +32,11 @@
 
      <referenceContainer name="header.container">
         <block class="Magento\Framework\View\Element\Template" name="na.search.toggle" before="-" template="Magento_Theme::html/search.phtml" />
-        <block class="Magento\Framework\View\Element\Template" name="my.slider" before="-" template="Magento_Theme::html/slider.phtml" />
-        <block class="Magento\Framework\View\Element\Template" name="section2" before="-" template="Magento_Theme::html/section2.phtml" />
+        <!-- <block class="Magento\Framework\View\Element\Template" name="my.slider" before="-" template="Magento_Theme::html/slider.phtml" /> -->
+        <!-- <block class="Magento\Framework\View\Element\Template" name="section2" before="-" template="Magento_Theme::html/section2.phtml" /> -->
         <block class="Magento\Framework\View\Element\Template" name="na.expand.button" before="-" template="Magento_Theme::html/expandBtn.phtml" />
-        <block class="Lenawesome\MyModule\Block\Product" name="product.slider" before="-" 
-        template="Magento_Theme::html/productSlider.phtml">
-            <arguments>
-                <argument name="custom_array" xsi:type="array">
-                    <item name="product_one" xsi:type="number">
-                    1
-                    </item>
-                </argument>
-            </arguments>
-        </block>
+        <!-- <block class="Lenawesome\MyModule\Block\Product" name="product.slider" before="-" 
+        template="Magento_Theme::html/productSlider.phtml"> -->
      </referenceContainer>
 
     <move element="na.search.toggle" destination="right.control" before="-"/>
@@ -52,9 +46,9 @@
      
     <move element="right.control" destination="group.control" before="-"/>
     <move element="group.control" destination="header-wrapper" after="my_nav"/>
-    <move element="my.slider" destination="section.container" before="-"/>
+    <!-- <move element="my.slider" destination="section.container" before="-"/>
     <move element="section2" destination="section.container" after="-"/>
-    <move element="product.slider" destination="main.content" before="-"/>
+    <move element="product.slider" destination="main.content" before="-"/> -->
     
         <!-- <referenceBlock name="header.container" remove="true"/> -->
         <!-- <referenceContainer name="header.container">

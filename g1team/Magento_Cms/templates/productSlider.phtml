@@ -1,0 +1,61 @@
+<?php 
+    $product = $this->getProductById(1);
+    $addToCartUrl =  $this->getAddCartUrl($product);
+    $imageUrl = $this->helper('Magento\Catalog\Helper\Image')
+    ->init($product, 'product_base_image')
+    ->constrainOnly(TRUE)
+    ->keepTransparency(TRUE)
+    ->keepFrame(FALSE)->resize(600,600)->getUrl();
+?>
+<section class="section3">
+    <div id="product-slider" class="owl-carousel owl-theme">
+        <div class="deal">
+                <div class="slider-info">
+                    <div class="slider-title poppins-font bold">
+                        Daily Deal
+                    </div>
+                    <div class="countdown">
+                        <div class="time">
+                            <span id="day"></span>
+                            <div class="smalltext">Days</div>
+                        </div>
+                        <div class="time">
+                            <span id="hour"></span>
+                            <div class="smalltext">Hours</div>
+                        </div>
+                        <div class="time">
+                            <span id="minute"></span>
+                            <div class="smalltext">Mins</div>
+                        </div>
+                        <div class="time">
+                            <span id="second"></span>
+                            <div class="smalltext">Secs</div>
+                        </div>
+                    </div>
+                    <div class="product-name poppins-font bold">
+                        Olympic Weight Bench
+                    </div>
+                    <div class="product-description poppins-font">
+                        It is a long established fact that a reader will be distracted by the readable content of a page
+                        when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less...
+                    </div>
+                    <div class="product-price">
+                        <span class="price poppins-font bold">$300.00</span>
+                        <span class="old-price poppins-font">$200.00</span>
+                    </div>
+                    <form data-role="tocart-form" action="<?php echo $addToCartUrl; ?>" method="post"> 
+                        <?php echo $block->getBlockHtml('formkey')?>
+                        <div class="action">
+                            <button type="submit" class="add-to-cart-btn poppins-font">
+                                Add to cart
+                            </button>
+                            <a class="poppins-font" href="<?php echo $this->getProductUrl(1)?>">Detail</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="product-image">
+                    <img src="<?php echo $imageUrl?>" alt="">
+                </div>
+            </div>
+        </div>
+</section>

@@ -1,6 +1,18 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <container>
-        </container>
+      <referenceContainer name="columns.top">
+            <block class="Magento\Framework\View\Element\Template" name="my.slider" before="-" template="Magento_Cms::slider.phtml"/>
+            <block class="Magento\Framework\View\Element\Template" name="section2" after="my.slider" template="Magento_Theme::html/section2.phtml" />
+            <block class="Lenawesome\MyModule\Block\Product" name="product.slider" after="section2" 
+            template="Magento_Theme::html/productSlider.phtml">
+                <arguments>
+                    <argument name="custom_array" xsi:type="array">
+                        <item name="product_one" xsi:type="number">
+                        1
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
     </body>
 </page>
